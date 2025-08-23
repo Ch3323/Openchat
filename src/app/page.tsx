@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import axios from "axios";
-import JoinRoomForm from "@/components/home/joinroom";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import axios from 'axios';
+import JoinRoomForm from '@/components/home/joinroom';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 function Home() {
   const router = useRouter();
   async function handleCreate() {
     try {
-      const res = await axios.post("/api/room/create");
+      const res = await axios.post('/api/room/create');
       const newRoom = res.data;
-      toast("Room Created", { description: `Code: ${newRoom.code}` });
+      toast('Room Created', { description: `Code: ${newRoom.code}` });
       router.push(`/room/${newRoom.code}`);
     } catch (_) {
-      toast("Error", { description: "Failed to create room." });
+      toast('Error', { description: 'Failed to create room.' });
     }
   }
 
@@ -26,7 +26,7 @@ function Home() {
         <Button
           onClick={handleCreate}
           className="self-end px-0 font-normal select-none"
-          variant={"link"}
+          variant={'link'}
         >
           Don't have a room yet? Create a new one.
         </Button>

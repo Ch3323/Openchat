@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 function RoomIndex() {
-  redirect("/");
+  redirect('/');
 }
 export default RoomIndex;

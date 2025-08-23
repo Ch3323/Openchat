@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import axios from "axios";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { toast } from "sonner";
+import axios from 'axios';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { toast } from 'sonner';
 
 function JoinRoomForm() {
-  const [roomCode, setRoomCode] = useState("");
+  const [roomCode, setRoomCode] = useState('');
   const router = useRouter();
 
   async function handleJoin() {
     if (!roomCode) {
-      toast("Error", { description: "You have to enter the room code." });
+      toast('Error', { description: 'You have to enter the room code.' });
       return;
     }
 
@@ -21,11 +21,11 @@ function JoinRoomForm() {
       const res = await axios.get(`/api/room/${roomCode}`);
 
       if (res.status === 200) {
-        toast("Success", { description: "Joined room!" });
+        toast('Success', { description: 'Joined room!' });
         router.push(`/room/${roomCode}`);
       }
     } catch (_) {
-      toast("Error", { description: "Room not found." });
+      toast('Error', { description: 'Room not found.' });
     }
   }
 

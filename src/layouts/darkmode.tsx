@@ -1,14 +1,14 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Button } from '@/components/ui/button';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 function Darkmode() {
   const { theme, setTheme } = useTheme();
 
   function changeTheme() {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   }
 
   return (
@@ -16,8 +16,8 @@ function Darkmode() {
       <Button
         onClick={changeTheme}
         className="absolute top-3 right-3 rounded-full"
-        variant={"ghost"}
-        size={"icon"}
+        variant={'ghost'}
+        size={'icon'}
       >
         <Moon className="hidden dark:inline" />
         <Sun className="dark:hidden" />

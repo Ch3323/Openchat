@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/client";
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/client';
 
 export function useRoomMessages(roomCode: string) {
   const [messages, setMessages] = useState<any[]>([]);
@@ -9,23 +9,23 @@ export function useRoomMessages(roomCode: string) {
 
     const loadMessages = async () => {
       const { data, error } = await supabase
-        .from("Message")
-        .select("*")
-        .eq("room_code", roomCode)
-        .order("created_at", { ascending: true });
+        .from('Message')
+        .select('*')
+        .eq('room_code', roomCode)
+        .order('created_at', { ascending: true });
 
       if (!error && data) setMessages(data);
     };
     loadMessages();
 
     const channel = supabase
-      .channel("room-messages")
+      .channel('room-messages')
       .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "Message", filter: `room_code=eq.${roomCode}` },
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'Message', filter: `room_code=eq.${roomCode}` },
         (payload) => {
           setMessages((prev) => [...prev, payload.new]);
-        }
+        },
       )
       .subscribe();
 
@@ -38,10 +38,7 @@ export function useRoomMessages(roomCode: string) {
 }
 
 export async function sendMessage(roomCode: string, text: string) {
-  const { error } = await supabase
-    .from("Message")
-    .insert([{ text, room_code: roomCode }]);
+  const { error } = await supabase.from('Message').insert([{ text, room_code: roomCode }]);
 
-  if (error) console.error("Error sending message:", error);
+  if (error) console.error('Error sending message:', error);
 }
-
