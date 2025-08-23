@@ -15,7 +15,7 @@ export async function GET(req: NextRequest, context: { params: Promise<{ code: s
     }
 
     return NextResponse.json(room);
-  } catch (error) {
+  } catch (_) {
     return NextResponse.json({ error: "Error checking room" }, { status: 500 });
   }
 }

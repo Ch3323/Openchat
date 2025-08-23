@@ -24,7 +24,7 @@ function JoinRoomForm() {
         toast("Success", { description: "Joined room!" });
         router.push(`/room/${roomCode}`);
       }
-    } catch (err) {
+    } catch (_) {
       toast("Error", { description: "Room not found." });
     }
   }

@@ -10,7 +10,7 @@ function generateRoomCode(length = 6) {
   return result;
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(_: NextRequest) {
   try {
     let room;
     let attempts = 0;

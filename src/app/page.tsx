@@ -14,7 +14,7 @@ function Home() {
       const newRoom = res.data;
       toast("Room Created", { description: `Code: ${newRoom.code}` });
       router.push(`/room/${newRoom.code}`);
-    } catch (err) {
+    } catch (_) {
       toast("Error", { description: "Failed to create room." });
     }
   }
