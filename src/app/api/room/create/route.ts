@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 function generateRoomCode(length = 6) {
@@ -10,7 +10,7 @@ function generateRoomCode(length = 6) {
   return result;
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     let room;
     let attempts = 0;
