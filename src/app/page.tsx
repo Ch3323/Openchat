@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import JoinRoomForm from '@/components/home/joinroom';
 import { Button } from '@/components/ui/button';
