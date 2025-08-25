@@ -9,15 +9,21 @@ import { toast } from 'sonner';
 
 function JoinRoomForm() {
   const [roomCode, setRoomCode] = useState('');
+  const [isJoining, setIsJoining] = useState(false);
   const router = useRouter();
 
   async function handleJoin() {
+    if (isJoining) {
+      return;
+    }
     if (!roomCode) {
       toast('Error', { description: 'You have to enter the room code.' });
       return;
     }
 
     try {
+      setIsJoining(true);
+      toast('Joining Room', { description: 'Please wait...' });
       const res = await axios.get(`/api/room/${roomCode}`);
 
       if (res.status === 200) {
@@ -26,6 +32,7 @@ function JoinRoomForm() {
       }
     } catch (_) {
       toast('Error', { description: 'Room not found.' });
+      setIsJoining(false);
     }
   }
 
@@ -37,7 +44,9 @@ function JoinRoomForm() {
         placeholder="Enter room code..."
         className="focus-visible:ring-0 focus-visible:border-input"
       />
-      <Button onClick={handleJoin}>Join</Button>
+      <Button onClick={handleJoin} disabled={isJoining}>
+        Join
+      </Button>
     </div>
   );
 }
