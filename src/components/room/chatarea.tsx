@@ -23,7 +23,7 @@ function Chatarea() {
   };
 
   return (
-    <div className="flex flex-col justify-between bg-primary-foreground gap-2 w-3xl max-w-3xl h-1/2 max-h-1/2">
+    <div className="z-100 flex sm:mx-3 flex-col justify-between bg-primary-foreground gap-2 w-3xl max-w-3xl h-full sm:h-1/2 sm:max-h-1/2 border-1 border-input">
       <div className="flex justify-between items-center border-b-1">
         <div className="flex h-full">
           <Link href={'/'}>
@@ -47,9 +47,10 @@ function Chatarea() {
       </div>
       <div className="flex">
         <Input
-          className="rounded-none focus-visible:ring-0"
+          className="rounded-none focus-visible:ring-0 border-x-0 border-b-0 focus-visible:border-input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
         />
         <Button onClick={handleSend} className="rounded-none">
           <Send />

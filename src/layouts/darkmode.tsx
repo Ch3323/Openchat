@@ -12,7 +12,7 @@ function Darkmode() {
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="sm:inline w-full h-full">
       <Button
         onClick={changeTheme}
         className="absolute top-3 right-3 rounded-full"

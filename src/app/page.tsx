@@ -26,12 +26,12 @@ function Home() {
   }
 
   return (
-    <div className="container mx-auto flex justify-center items-center h-screen">
-      <div className="flex flex-col gap-2 max-w-lg">
+    <div className="container mx-auto flex justify-center items-center h-dvh">
+      <div className="flex flex-col justify-center items-center gap-2 w-full max-w-xs px-5 sm:px-0 sm:max-w-xl">
         <JoinRoomForm />
         <Button
           onClick={handleCreate}
-          className="self-end px-0 font-normal select-none"
+          className="self-center sm:self-end px-0 font-normal select-none text-xs sm:text-sm"
           variant={'link'}
           disabled={isCreating}
         >

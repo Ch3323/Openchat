@@ -30,11 +30,12 @@ function JoinRoomForm() {
   }
 
   return (
-    <div className="flex w-full gap-2 select-none">
+    <div className="flex flex-col sm:flex-row w-full gap-2 select-none">
       <Input
         onChange={(e) => setRoomCode(e.target.value)}
-        className="w-lg"
+        onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
         placeholder="Enter room code..."
+        className="focus-visible:ring-0 focus-visible:border-input"
       />
       <Button onClick={handleJoin}>Join</Button>
     </div>
