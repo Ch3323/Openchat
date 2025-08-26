@@ -23,7 +23,7 @@ function Chatarea() {
   };
 
   return (
-    <div className="z-100 flex sm:mx-3 flex-col justify-between bg-primary-foreground gap-2 w-3xl max-w-3xl h-full sm:h-1/2 sm:max-h-1/2 border-1 border-input">
+    <div className="z-100 flex sm:mx-3 flex-col justify-between bg-primary-foreground w-3xl max-w-3xl h-full sm:h-1/2 sm:max-h-1/2 border-1 border-input">
       <div className="flex justify-between items-center border-b-1">
         <div className="flex h-full">
           <Link href={'/'}>
@@ -40,7 +40,7 @@ function Chatarea() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-3 h-[80%] px-4 overflow-y-auto">
+      <div className="flex flex-col gap-3 p-4 h-full overflow-y-auto">
         {messages.map((m) => (
           <ChatBubble key={m.id} text={m.text} />
         ))}

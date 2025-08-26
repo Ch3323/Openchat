@@ -15,7 +15,7 @@ function Darkmode() {
     <div className="sm:inline w-full h-full">
       <Button
         onClick={changeTheme}
-        className="absolute top-3 right-3 rounded-full"
+        className="absolute top-3 left-3 rounded-full"
         variant={'ghost'}
         size={'icon'}
       >

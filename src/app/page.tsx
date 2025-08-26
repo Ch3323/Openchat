@@ -8,10 +8,12 @@ import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import TextType from '@/components/reactBits/texttype';
 import AnimatedContent from '@/components/reactBits/animatedContent';
+import RoomSelect from '@/components/home/roomselect';
 
 function Home() {
   const router = useRouter();
   const [isCreating, setIsCreating] = useState(false);
+  const [isSelect, setIsSelect] = useState(false);
 
   async function handleCreate() {
     try {
@@ -59,6 +61,9 @@ function Home() {
           </AnimatedContent>
         </div>
         <JoinRoomForm />
+        <Button className="w-full" variant={'outline'} onClick={() => setIsSelect(!isSelect)}>
+          Select Room
+        </Button>
         <Button
           onClick={handleCreate}
           className="self-center sm:self-end px-0 font-normal select-none text-xs sm:text-sm"
@@ -67,6 +72,7 @@ function Home() {
         >
           Don't have a room yet? Create a new one.
         </Button>
+        <RoomSelect className={isSelect ? 'absolute' : 'hidden'} />
       </div>
     </div>
   );
