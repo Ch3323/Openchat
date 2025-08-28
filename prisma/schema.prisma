@@ -24,7 +24,8 @@ model Room {
 
 model Message {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text      String
+  text      String?
+  image_url String?
   createdAt DateTime @default(now()) @map("created_at")
   room      Room     @relation("RoomMessages", fields: [roomCode], references: [code])
   roomCode  String   @map("room_code")

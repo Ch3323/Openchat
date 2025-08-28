@@ -38,7 +38,9 @@ export function useRoomMessages(roomCode: string) {
 }
 
 export async function sendMessage(roomCode: string, text: string) {
-  const { error } = await supabase.from('Message').insert([{ text, room_code: roomCode }]);
+  const { error } = await supabase
+    .from('Message')
+    .insert([{ text, room_code: roomCode, image_url: '' }]);
 
   if (error) console.error('Error sending message:', error);
 }
